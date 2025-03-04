@@ -209,6 +209,9 @@ class Focuser(object):
     def __del__(self):
         self.close()
 
+    def get_focuser_property(self):
+        return _get_focuser_property(self.id)
+
     def close(self):
         """Close the focuser in the EAF library.
         
