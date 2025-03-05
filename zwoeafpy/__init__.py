@@ -68,6 +68,7 @@ def _is_moving(id_):
     return [is_moving.value, is_moving_manual.value]
 
 def _get_temp(id_):
+    # Outputs General Error (7) if moving via the handle control. Handle exception outside of this package.
     temp = c.c_float()
     r = eaf_zwolib.EAFGetTemp(id_, temp)
     if r:
@@ -161,13 +162,12 @@ def list_focusers():
     return r
 
 class ZWO_Error(Exception):
-    """Exception class for errors returned from the :mod:`zwoasi` module."""
+    """Exception class for errors returned from the :mod:`zwoeafpy` module."""
     def __init__(self, message):
         Exception.__init__(self, message)
 
-
 class ZWO_IOError(ZWO_Error):
-    """Exception class for all errors returned from the ASI SDK library."""
+    """Exception class for all errors returned from the EAF SDK library."""
     def __init__(self, message, error_code=None):
         ZWO_Error.__init__(self, message)
         self.error_code = error_code
