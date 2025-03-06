@@ -289,6 +289,7 @@ class _EAF_INFO(c.Structure):
             if sys.version_info[0] >= 3 and isinstance(v, bytes):
                 v = v.decode()
             r[k] = v
+        return r
 
 class _EAF_ID(c.Structure):
     _fields_ = [('id', c.c_char * 8)]
