@@ -37,7 +37,7 @@ def _get_id(id_):
         raise zwo_errors[r]
     return id2.value
 
-def _set_id(id_, new_id):
+def _set_id(id_, new_id): # new_id must be a string - alias for the ID number
     id2 = _EAF_ID(new_id.encode())
     r = eaf_zwolib.EAFSetID(id_, id2)
     if r:
@@ -51,7 +51,7 @@ def _move_focuser(id_, abs_pos):
     return
 
 def _stop_focuser(id_):
-    # If moving via the handle control, cannot stop
+    # If moving via the han controller, cannot stop
     is_moving_manual = _is_moving(id_)[1]
     if not is_moving_manual:
         r = eaf_zwolib.EAFStop(id_)
@@ -68,7 +68,7 @@ def _is_moving(id_):
     return [is_moving.value, is_moving_manual.value]
 
 def _get_temp(id_):
-    # Outputs General Error (7) if moving via the handle control. Handle exception outside of this package.
+    # Outputs General Error (7) if moving via the hand controller. Handle exception outside of this package.
     temp = c.c_float()
     r = eaf_zwolib.EAFGetTemp(id_, temp)
     if r:
@@ -224,7 +224,7 @@ class Focuser(object):
     def get_id(self):
         return _get_id(self.id)
     
-    def set_id(self, new_id):
+    def set_id(self, new_id): # new_id must be a string - alias for the ID number
         _set_id(self.id, new_id)
 
     def get_temp(self):
