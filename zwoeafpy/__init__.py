@@ -1,4 +1,4 @@
-"""Interface to ZWO ASI Electronic Automatic Focusers (EAFs)."""
+"""Interface to ZWO Electronic Automatic Focusers (EAFs)."""
 
 import ctypes as c
 from ctypes.util import find_library

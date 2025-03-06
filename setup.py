@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 setup(
     name='zwoeafpy',
-    version='1.0.1',
+    version='1.0.2',
     author='William Fox',
     author_email='foxwilliamcarr@gmail.com',
     description='Python binding for the ZWO Electronic Automatic Focuser (EAF) SDK',
