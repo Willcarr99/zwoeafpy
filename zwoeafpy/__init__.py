@@ -35,7 +35,7 @@ def _get_id(id_):
     r = eaf_zwolib.EAFGetID(id_, id2)
     if r:
         raise zwo_errors[r]
-    return id2.value()
+    return id2.value
 
 def _set_id(id_, new_id):
     id2 = _EAF_ID(new_id.encode())
@@ -246,7 +246,7 @@ class Focuser(object):
         return _is_moving(self.id) # returns [is_moving: bool, is_moving_manual: bool]
 
     def get_beep(self):
-        _get_beep(self.id)
+        return _get_beep(self.id)
 
     def set_beep(self, beep):
         _set_beep(self.id, beep)
