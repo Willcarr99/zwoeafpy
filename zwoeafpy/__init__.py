@@ -51,7 +51,7 @@ def _move_focuser(id_, abs_pos):
     return
 
 def _stop_focuser(id_):
-    # If moving via the han controller, cannot stop
+    # If moving via the hand controller, cannot stop
     is_moving_manual = _is_moving(id_)[1]
     if not is_moving_manual:
         r = eaf_zwolib.EAFStop(id_)
